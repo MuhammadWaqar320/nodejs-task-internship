@@ -1,0 +1,5 @@
+"_id","name","genre","business_done","avg_rating","actors","poster"
+"621f53488d4ad8933802a89d","intizar","comedy",300,3.85,"[{""_id"":""621c69677157a20fd5f53223""}]","http://localhost:8000/profile/poster_1646811991648blockchain-technology-logo-template-vector-31075710.jpg"
+"621f5796de00d37ce8d2f3fd","done","comedy",300,3.2,"[{""_id"":""621c69677157a20fd5f53223""}]",
+"621f67af949795e7c88e0806","ashiqi","sad",300,3.2,"[{""_id"":""621c69677157a20fd5f53223""}]",
+"621f6d34be9cd31a805950ff","don65","romantic",300,3.2,"[{""_id"":""621c69677157a20fd5f53223""}]",

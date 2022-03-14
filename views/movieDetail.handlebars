@@ -1,0 +1,40 @@
+
+<div class="row" style="margin: 3%">
+<h1 style="text-align: center;font-weight:bold;margin-bottom:30px">{{movie.name}} Information</h1>
+<div class="col-sm-6">
+        <img src="{{movie.poster}}" height="500px" class="card-img-top" alt="...">
+    </div>
+     <div class="col-sm-6" >
+       <p><span style="font-weight: bold;font-size:18px">Name : </span>{{movie.name}}</p>
+       <p><span style="font-weight: bold;font-size:18px">Genre : </span>{{movie.genre}}</p>
+       <p><span style="font-weight: bold;font-size:18px">Business done by {{movie.name}} : </span>{{movie.business_done}}$</p>
+       <p><span style="font-weight: bold;font-size:20px">Rating : </span><i class="fa fa-star" style="color: orange;" aria-hidden="true"></i>({{movie.avg_rating}})</p>
+       <p><span style="font-weight: bold;font-size:18px">{{movie.name}} directed by : </span>    <ol>
+       {{#each movie.directors}}
+          <li> {{this._id.name}}</li>
+       {{/each}}
+         </ol></p>
+          <p><span style="font-weight: bold;font-size:18px">Actors are : </span>    <ol>
+       {{#each movie.actors}}
+          <li> {{this._id.name}}</li>
+       {{/each}}
+         </ol></p>
+   
+    </div>
+</div>
+
+<div style="border:1px solid silver;margin:5%;padding:2%;margin-top:0%">
+  <h3 style="text-align: center;font-weight:bold;margin-bottom:30px">Reviews And Rating({{movie.avg_rating}}<i class="fa fa-star" style="color: orange;" aria-hidden="true"></i>)</h3>
+  {{#each movie.reviews}}
+  <div style="border: 1px solid silver;margin-bottom:10px;padding:10px">
+  <img height="50px" width="50px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5qZWrKpx9mJWfLUk-SlGC9F6ME43mlmLtEAy4j_xpD59KcJGmn4sAJGdJ1XDiCmbukAM&usqp=CAU"></img>
+    <span style="font-weight: bold;">{{this.name}}(</span>{{this.rating}}<i class="fa fa-star" style="color: orange;" aria-hidden="true"></i>)</span><br>
+  <p style="padding-left:55px;">
+  {{this.feedback}}
+  </p>
+  </div>
+ 
+  
+  {{/each}}
+</div>
+    

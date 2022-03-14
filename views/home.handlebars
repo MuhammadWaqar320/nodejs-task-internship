@@ -1,0 +1,68 @@
+<style>
+  .disabled {
+    pointer-events:none; //This makes it not clickable
+    opacity:0.6;         //This grays it out to look disabled
+}
+</style>
+<div style="margin: 3%;">
+<center><h1 style="font-family: initial;margin-bottom:20px">All Movies</h1></center>
+<div class="row">
+{{#each movies}}
+ <div class="col-sm-2">
+ 
+ <div class="card" style="box-shadow: 0 0 20px rgb(51, 50, 50)">
+  <img src="{{this.poster}}" height="200px" style="width:100%">
+
+  <div style="padding: 10px;background:#ededed">
+      <h2>{{this.name}}</h2>
+
+<p><span style="font-weight: bold;">Genre</span> : {{this.genre}}</p>
+<p><span style="font-weight: bold;">Rating</span> : {{this.avg_rating}} <i class="fa fa-star" style="color: orange;" aria-hidden="true"></i></p>
+<a href="/movie/movieGetById/{{this._id}}" type="button" class="btn btn-outline-primary">more detail</a>
+  </div>
+  
+</div>
+ </div>
+
+{{/each}}
+ </div>
+ </div>
+</div>
+    <nav aria-label="Page navigation example" class="text-center">
+  <ul class="pagination justify-content-center">
+    <li class="page-item" style="border: 1px solid blue;" id="pre"><a class="page-link"  onclick="Previous()" href="#">Previous Page</a></li>
+{{!-- {{#totalPage}} --}}
+  
+     <input class="page-item" value="{{currentPage}}" readonly size="2" id="currentPage" style="border: 1px solid blue;text-align:center;border-left:0px solid silver"></input>
+{{!-- {{/totalPage}} --}}
+    <li class="page-item" style="border: 1px solid blue;"><a class="page-link" onclick="Next()" href="#">Next Page</a></li>
+  </ul>
+</nav>
+
+</div>
+
+
+
+<script>
+ let totalpages="{{totalPage}}";
+ let totalPageIntoNo=parseInt(totalpages)
+ let currentPage="{{currentPage}}";
+ let currPage=parseInt(currentPage);
+const Next=()=>
+{
+  if(currentPage<totalPageIntoNo)
+  {
+    location.href = "/movie/get?limit=2&page="+(currPage+1);
+  }
+    
+ 
+}
+const Previous=()=>
+{
+  if(currentPage>1)
+  {
+     location.href = "/movie/get?limit=2&page="+(currPage-1); 
+  }
+   
+}
+</script>

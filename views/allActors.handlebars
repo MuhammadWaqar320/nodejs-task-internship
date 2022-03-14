@@ -1,0 +1,65 @@
+
+
+<div style="margin: 3%;">
+<center><h1 style="font-family: initial;margin-bottom:20px">All Actors</h1></center>
+<div class="row">
+{{#each actors}}
+ <div class="col-sm-2">
+ 
+ <div class="card" style="box-shadow: 0 0 20px rgb(51, 50, 50)"> 
+  <img src="{{this.profile}}" height="200px" style="width:100%">
+
+  <div style="padding: 10px;background:#ededed">
+      <h2>{{this.name}}</h2>
+<p class="title">Bollywood Actor</p>
+  <a href="#"><i class="fa fa-dribbble"></i></a>
+  <a href="#"><i class="fa fa-twitter"></i></a>
+  <a href="#"><i class="fa fa-linkedin"></i></a>
+  <a href="#"><i class="fa fa-facebook"></i></a><br>
+<a href="/actor/actorsgetbyid/{{this._id}}"  type="button" class="btn btn-outline-primary">more detail</a>
+  </div>
+  
+</div>
+ </div>
+
+{{/each}}
+ </div>
+</div>
+    <nav aria-label="Page navigation example" class="text-center">
+  <ul class="pagination justify-content-center">
+    <li class="page-item" style="border: 1px solid blue;" id="pre"><a class="page-link"  onclick="Previous()" href="#">Previous Page</a></li>
+{{!-- {{#totalPage}} --}}
+  
+     <input class="page-item" value="{{currentPage}}" readonly size="2" id="currentPage" style="border: 1px solid blue;text-align:center;border-left:0px solid silver"></input>
+{{!-- {{/totalPage}} --}}
+    <li class="page-item" style="border: 1px solid blue;"><a class="page-link" onclick="Next()" href="#">Next Page</a></li>
+  </ul>
+</nav>
+
+</div>
+
+
+
+<script>
+ let totalpages="{{totalPage}}";
+ let totalPageIntoNo=parseInt(totalpages)
+ let currentPage="{{currentPage}}";
+ let currPage=parseInt(currentPage);
+const Next=()=>
+{
+  if(currentPage<totalPageIntoNo)
+  {
+    location.href = "/actor/get?limit=2&page="+(currPage+1);
+  }
+    
+ 
+}
+const Previous=()=>
+{
+  if(currentPage>1)
+  {
+     location.href = "/actor/get?limit=2&page="+(currPage-1); 
+  }
+   
+}
+</script>
