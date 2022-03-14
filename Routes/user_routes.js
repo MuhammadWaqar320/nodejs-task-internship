@@ -2,6 +2,9 @@ import express from 'express';
 import {rateLimiter,auth} from '../MiddleWares/AuthMiddleWare.js';
 import { userRegistrationValidation ,actorsValidations,reviewsValidations} from '../MiddleWares/validations.js';
 import { createUser,loginUser,logoutUser,activateUserEmail,forgetpassword,resetPassword } from '../Controllers/user_controllers.js';
+
+
+
 const user_router=express.Router();
 
 

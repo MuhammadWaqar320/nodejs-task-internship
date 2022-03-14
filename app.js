@@ -10,6 +10,13 @@ import { engine } from "express-handlebars";
 import path from "path";
 import { auth } from "express-openid-connect";
 import { getAllMovies } from "./Controllers/movies_controllers.js";
+
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
 const config = {
   authRequired: false,
   auth0Logout: true,
@@ -28,8 +35,8 @@ myapp.use("/profile", express.static("Upload/actorsProfile"));
 myapp.use("/poster", express.static("Upload/posters"));
 myapp.use(cookieParser());
 myapp.use(auth(config));
-// myapp.set('views', path.join(__dirname, 'views/'));
-myapp.engine("handlebars", engine({ defaultLayout: "index" }));
+myapp.set('views', path.join(__dirname, 'views/'));
+myapp.engine("handlebars", engine({ defaultLayout: "index",layoutsDir:"./views/layouts" }));
 myapp.set("view engine", "handlebars");
 // actor's routes are here
 myapp.use("/actor", actor_router);
